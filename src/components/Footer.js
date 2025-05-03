@@ -18,15 +18,25 @@ export default function Footer() {
         {/* Info de contacto */}
         <div className="flex flex-col gap-2 text-sm font-poppins text-AccentGray/80">
           <div className="flex items-center justify-center md:justify-start gap-2 transform transition-transform duration-1000 hover:scale-105">
-            <FaEnvelope size={16} className="hover:text-White/60 cursor-pointer" /> <span className="text-White/80 hover:text-White hover:cursor-pointer">contacto@matiascaradonti.com</span>
+            <FaEnvelope size={16} className="hover:text-White/60 cursor-pointer" />
+            <a href="mailto:contacto@matiascaradonti.com" className="text-White/80 hover:text-White hover:cursor-pointer">
+              contacto@matiascaradonti.com
+            </a>
           </div>
           <div className="flex items-center justify-center md:justify-start gap-2 transform transition-transform duration-1000 hover:scale-105">
-            <FaPhoneAlt size={16} className="hover:text-White/60 cursor-pointer" /> <span className="text-White/80 hover:text-White hover:cursor-pointer">+54 9 11 4409-9967</span>
+            <FaPhoneAlt size={16} className="hover:text-White/60 cursor-pointer" />
+            <a href="tel:+5491144099967" className="text-White/80 hover:text-White hover:cursor-pointer">
+              +54 9 11 4409-9967
+            </a>
           </div>
           <div className="flex items-center justify-center md:justify-start gap-2 transform transition-transform duration-1000 hover:scale-105">
-            <FaLocationDot size={16} className="hover:text-White/60 cursor-pointer" /> <span className="text-White/80 hover:text-White hover:cursor-pointer">Buenos Aires, Argentina</span>
+            <FaLocationDot size={16} className="hover:text-White/60 cursor-pointer" />
+            <span className="text-White/80 hover:text-White hover:cursor-pointer">
+              Buenos Aires, Argentina
+            </span>
           </div>
         </div>
+
 
         {/* Redes sociales */}
         <div className="flex justify-center md:justify-end gap-6 text-AccentLightBlue mt-4 md:mt-0 md:mr-10">
