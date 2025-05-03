@@ -70,7 +70,7 @@ export default function Header() {
           <img
             src="/gallery/logo_3_mobile.png"
             alt="Logo"
-            className="w-16 h-16 sm:w-20 sm:h-20 mx-auto md:mx-0"
+            className="w-16 h-16 sm:w-20 sm:h-20 mx-auto md:mx-0 transform transition-transform duration-1000 hover:scale-105"
           />
           {/* <span className="hidden md:inline-block text-xl font-poppins font-semibold">
             Dr. Matías Caradonti

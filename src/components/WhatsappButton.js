@@ -28,12 +28,12 @@ export default function WhatsAppButton() {
         className="group relative"
       >
         {/* Tooltip solo en desktop */}
-        <div className="hidden md:block absolute -left-36 bottom-full mb-2 bg-TextDark/80 text-white text-sm px-3 py-1 rounded opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap z-50">
+        <div className="hidden md:block absolute -left-36 bottom-full mb-2 bg-TextDark/80 text-white text-sm px-3 py-1 rounded opacity-0 group-hover:opacity-100 transition-all duration-1000 whitespace-nowrap z-50">
           Escribinos por WhatsApp
         </div>
 
         {/* Botón WhatsApp */}
-        <div className="bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-transform duration-300 hover:scale-110">
+        <div className="bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-transform duration-1000 hover:scale-110">
           <FaWhatsapp className="text-3xl" />
         </div>
       </a>

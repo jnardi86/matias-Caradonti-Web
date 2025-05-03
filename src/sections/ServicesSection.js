@@ -6,8 +6,9 @@ export default function ServicesSection() {
     <FadeInSection direction="up" delay={0.3}>
       <section id="services" className="bg-PrimaryBlue py-16 mt-40 scroll-mt-24">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl sm:text-5xl font-montserrat font-medium text-White/90 mb-12">
+          <h2 className="text-4xl sm:text-5xl font-montserrat font-medium text-White/90 mb-12 relative inline-block group cursor-default">
             Servicios
+            <span className="absolute left-1/2 bottom-0 w-0 h-[2px] bg-White/80 transition-all duration-1000 group-hover:w-full group-hover:left-0"></span>
           </h2>
 
           <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-3">

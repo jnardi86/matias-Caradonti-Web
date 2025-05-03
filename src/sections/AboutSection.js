@@ -21,9 +21,12 @@ export default function AboutSection() {
           {/* Texto */}
           <div className="w-full md:w-1/2 text-center md:text-left">
 
-            <h2 className="text-4xl sm:text-5xl font-montserrat font-medium text-PrimaryBlue mb-6">
+            <h2 className="text-4xl sm:text-5xl font-montserrat font-medium text-PrimaryBlue mb-6 relative inline-block group cursor-default">
               Dr. Matías Caradonti
+              <span className="absolute left-1/2 bottom-0 w-0 h-[2px] bg-PrimaryBlue/80 transition-all duration-1000 group-hover:w-full group-hover:left-0"></span>
             </h2>
+
+
             <p className="text-base sm:text-lg sm:mr-4 font-poppins text-TextDark leading-relaxed">
               Con una sólida formación en urología y cirugía mínimamente invasiva, el Dr. Matías Caradonti ofrece un enfoque integral y personalizado en el tratamiento de patologías urológicas. Su compromiso está centrado en mejorar la calidad de vida de sus pacientes, combinando excelencia médica, innovación tecnológica y atención humana de primer nivel.
             </p>

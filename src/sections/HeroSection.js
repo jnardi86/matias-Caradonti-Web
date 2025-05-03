@@ -2,7 +2,10 @@
 
 export default function HeroSection() {
   return (
-    <section className="relative w-full h-screen overflow-hidden">
+    <section 
+    className="relative w-full h-screen overflow-hidden"
+    id="hero"
+    >
       {/* Video fondo - mobile */}
       <video
         autoPlay
