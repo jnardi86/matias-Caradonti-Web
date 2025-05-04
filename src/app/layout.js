@@ -10,7 +10,7 @@ export const metadata = {
   title: "Dr. Matías Caradonti",
   description: "Especialista en urología. Atención médica profesional en Buenos Aires.",
   icons: {
-    icon: "/favicon.png",
+    icon: "./favicon.png",
   },
   openGraph: {
     title: "Dr. Matías Caradonti",
@@ -19,7 +19,7 @@ export const metadata = {
     siteName: "Dr. Matías Caradonti",
     images: [
       {
-        url: "/mc_image.png",
+        url: "./mc_image.png",
         width: 1200,
         height: 630,
         alt: "Dr. Matías Caradonti - Urología",
@@ -32,7 +32,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Dr. Matías Caradonti",
     description: "Especialista en urología. Atención médica profesional en Buenos Aires.",
-    images: ["/mc_image.png"],
+    images: ["./mc_image.png"],
   },
 };
 
