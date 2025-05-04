@@ -1,25 +1,69 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
+import Tilt from "react-parallax-tilt";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import "swiper/css";
 import "swiper/css/navigation";
 import testimonials from "./testimonialsData";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import FadeInSection from "@/components/FadeInSection";
+import { Fade, Slide } from "react-awesome-reveal";
 
 export default function TestimonialsSection() {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    handleResize(); // inicial
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const TestimonialCard = ({ testimonio }) => {
+    const content = (
+      <div className="bg-White overflow-hidden w-[280px] h-[350px] mx-auto flex flex-col group transition-shadow duration-500 hover:shadow-2xl">
+        {/* Imagen */}
+        <div className="bg-White p-6 flex justify-center items-center transition-transform duration-500 group-hover:scale-105">
+          <img
+            src={testimonio.foto}
+            alt={testimonio.nombre}
+            className="w-36 h-36 object-cover rounded-full shadow-md"
+          />
+        </div>
+        {/* Texto */}
+        <div className="p-6 flex flex-col items-center text-center h-full">
+          <h3 className="text-lg font-bold font-montserrat text-PrimaryBlue mb-2">
+            {testimonio.nombre}
+          </h3>
+          <p className="text-gray-600 text-sm font-poppins leading-relaxed">
+            "{testimonio.reseña}"
+          </p>
+        </div>
+      </div>
+    );
+
+    return isMobile ? content : (
+      <Tilt glareEnable={true} glareMaxOpacity={0.1} scale={1.02} transitionSpeed={2000}>
+        {content}
+      </Tilt>
+    );
+  };
 
   return (
-    <FadeInSection direction="down" delay={0.3}>
+    <Slide direction="up" triggerOnce>
       <section id="testimonials" className="py-16 mt-40">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl sm:text-5xl font-montserrat font-medium text-PrimaryBlue mb-12">
-            <span className="bg-PrimaryBlue text-White/80 p-1 sm:p-2">Testimonios</span> de Pacientes
+
+          <h2 className="text-5xl font-poppins font-bold text-PrimaryBlue mb-12 leading-normal lg:leading-none">
+            <span className="bg-PrimaryBlue text-White px-4">Testimonios</span> de Pacientes
           </h2>
+
+
 
           <Swiper
             modules={[Navigation]}
@@ -45,33 +89,14 @@ export default function TestimonialsSection() {
               1024: { slidesPerView: 4 },
             }}
           >
-            {testimonials.map((testimonio, index) => (
-              <SwiperSlide key={index}>
-                <div className="bg-White  overflow-hidden w-[280px] h-[350px] mx-auto flex flex-col group transition-shadow duration-500 hover:shadow-xl">
-                  {/* Parte de la imagen */}
-                  <div className="bg-White p-6 flex justify-center items-center transition-transform duration-500 group-hover:scale-105">
-                    <img
-                      src={testimonio.foto}
-                      alt={testimonio.nombre}
-                      className="w-36 h-36 object-cover rounded-full shadow-md"
-                    />
-                  </div>
-
-                  {/* Parte del texto */}
-                  <div className=" p-6 flex flex-col items-center text-center h-full">
-                    <h3 className="text-lg font-bold font-montserrat text-PrimaryBlue mb-2">
-                      {testimonio.nombre}
-                    </h3>
-                    <p className="text-gray-600 text-sm font-poppins leading-relaxed">
-                      "{testimonio.reseña}"
-                    </p>
-                  </div>
-                </div>
+            {testimonials.map((t, i) => (
+              <SwiperSlide key={i}>
+                <TestimonialCard testimonio={t} />
               </SwiperSlide>
             ))}
           </Swiper>
 
-          {/* Flechas personalizadas encapsuladas */}
+          {/* Flechas */}
           <div className="flex justify-center gap-8 mt-8">
             <button
               ref={prevRef}
@@ -88,7 +113,7 @@ export default function TestimonialsSection() {
           </div>
         </div>
       </section>
-    </FadeInSection>
+    </Slide>
 
   );
 }

@@ -1,7 +1,7 @@
 "use client";
 
-import FadeInSection from "@/components/FadeInSection";
 import { useState } from "react";
+import { Slide } from "react-awesome-reveal";
 import Swal from "sweetalert2"; // <-- Importamos SweetAlert2
 
 export default function ContactSection() {
@@ -43,7 +43,7 @@ export default function ContactSection() {
   };
 
   return (
-    <FadeInSection direction="left" delay={0.3}>
+    <Slide direction="right" triggerOnce>
       <section
         id="contact"
         className="relative py-16 mt-40 bg-scroll md:bg-fixed bg-center bg-cover bg-no-repeat scroll-mt-24"
@@ -58,10 +58,10 @@ export default function ContactSection() {
 
           {/* Texto lado izquierdo */}
           <div className="w-full md:w-1/2 text-center md:text-left text-white">
-            <h2 className="text-3xl sm:text-4xl font-montserrat font-medium mb-6">
+            <h2 className="text-4xl font-poppins font-bold md:text-5xl mb-6 ">
               Estamos para acompañarte en cada paso
             </h2>
-            <p className="text-lg font-montserrat font-light text-AccentGray/60">
+            <p className="text-lg font-montserrat font-light text-AccentGray">
               Dejanos tu consulta y te responderemos a la brevedad. Tu salud es nuestra prioridad.
             </p>
           </div>
@@ -105,7 +105,7 @@ export default function ContactSection() {
               ></textarea>
               <button
                 type="submit"
-                className="bg-White/20 text-White md:mx-auto md:w-1/2 font-montserrat font-medium px-6 py-3 rounded hover:bg-AccentGray/50 transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg hover:text-TextDark"
+                className="bg-White/20 text-White md:mx-auto md:w-1/2 font-montserrat font-medium px-6 py-3 rounded hover:bg-AccentGray/50 transition-all duration-1000 transform hover:scale-105 shadow-md hover:shadow-lg hover:text-TextDark"
               >
                 Enviar consulta
               </button>
@@ -114,7 +114,6 @@ export default function ContactSection() {
 
         </div>
       </section>
-    </FadeInSection>
-
+    </Slide>
   );
 }

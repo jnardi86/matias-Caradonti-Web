@@ -9,7 +9,7 @@ export default function Footer() {
         {/* Logo */}
         <div className="flex flex-col items-center gap-2 xl:mx-auto ">
           <img src="/gallery/logo_3_mobile.png" alt="Logo" className="w-16 h-16 transform transition-transform duration-1000 hover:scale-105" />
-          <span className="text-lg font-montserrat font-medium hover:text-White/60 hover:cursor-pointer relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-White after:transition-all after:duration-1000 hover:after:w-full">
+          <span className="text-lg font-montserrat font-medium hover:text-White/60 hover:cursor-pointer sm:relative sm:after:absolute sm:after:bottom-0 sm:after:left-0 sm:after:h-[2px] sm:after:w-0 sm:after:bg-White sm:after:transition-all sm:after:duration-1000 sm:hover:after:w-full">
             Dr. Matías Caradonti
           </span>
 
@@ -25,7 +25,7 @@ export default function Footer() {
           </div>
           <div className="flex items-center justify-center md:justify-start gap-2 transform transition-transform duration-1000 hover:scale-105">
             <FaPhoneAlt size={16} className="hover:text-White/60 cursor-pointer" />
-            <a href="tel:+5491144099967" className="text-White/80 hover:text-White hover:cursor-pointer">
+            <a href="https://wa.me/5491144099967" className="text-White/80 hover:text-White hover:cursor-pointer">
               +54 9 11 4409-9967
             </a>
           </div>

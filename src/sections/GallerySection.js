@@ -6,7 +6,7 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import FadeInSection from "@/components/FadeInSection";
+import { Fade, Zoom } from "react-awesome-reveal";
 
 export default function GallerySection() {
   const images = [
@@ -26,13 +26,18 @@ export default function GallerySection() {
   const closeModal = () => setModalImage(null);
 
   return (
-    <FadeInSection direction="righ" delay={0.3}>
-      <section id="gallery" className="py-16 mt-40 bg-White relative scroll-mt-24">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl sm:text-5xl font-montserrat font-medium text-PrimaryBlue mb-12">
-            <span className="bg-PrimaryBlue text-White/80 p-1 sm:p-2">Más de 15 años</span> dedicados a la salud urológica
+    <section id="gallery" className="py-16 mt-40 bg-White relative scroll-mt-24">
+      <div className="container mx-auto px-4 text-center">
+        
+        {/* Título animado */}
+        <Zoom triggerOnce>
+          <h2 className="text-4xl md:text-5xl font-poppins font-bold text-PrimaryBlue mb-12 leading-normal">
+            <span className="bg-PrimaryBlue text-White px-4 py-2 md:py-0">Más de 15 años</span> dedicados a la salud urológica
           </h2>
+        </Zoom>
 
+        {/* Galería animada */}
+        <Fade cascade damping={0.2} triggerOnce>
           <Swiper
             modules={[Navigation]}
             navigation={{
@@ -69,48 +74,46 @@ export default function GallerySection() {
               </SwiperSlide>
             ))}
           </Swiper>
+        </Fade>
 
-          {/* Flechas personalizadas */}
-          <div className="flex justify-center gap-8 mt-8">
-            <button
-              ref={prevRef}
-              className="text-PrimaryBlue hover:text-AccentLightBlue transition transform hover:scale-110"
-            >
-              <ChevronLeft size={32} />
-            </button>
-            <button
-              ref={nextRef}
-              className="text-PrimaryBlue hover:text-AccentLightBlue transition transform hover:scale-110"
-            >
-              <ChevronRight size={32} />
-            </button>
-          </div>
+        {/* Flechas de navegación */}
+        <div className="flex justify-center gap-8 mt-8">
+          <button
+            ref={prevRef}
+            className="text-PrimaryBlue hover:text-AccentLightBlue transition transform hover:scale-110"
+          >
+            <ChevronLeft size={32} />
+          </button>
+          <button
+            ref={nextRef}
+            className="text-PrimaryBlue hover:text-AccentLightBlue transition transform hover:scale-110"
+          >
+            <ChevronRight size={32} />
+          </button>
         </div>
+      </div>
 
-        {/* Modal */}
-        {modalImage && (
-          <div
-            className="fixed inset-0 bg-black/70 backdrop-blur-sm flex justify-center items-center z-50"
+      {/* Modal de imagen ampliada */}
+      {modalImage && (
+        <div
+          className="fixed inset-0 bg-black/70 backdrop-blur-sm flex justify-center items-center z-50"
+          onClick={closeModal}
+        >
+          <button
+            className="absolute top-6 right-6 text-white text-4xl font-light hover:text-gray-300 transition-colors z-50"
             onClick={closeModal}
           >
-            {/* Botón cerrar */}
-            <button
-              className="absolute top-6 right-6 text-white text-4xl font-light hover:text-gray-300 transition-colors z-50"
-              onClick={closeModal}
-            >
-              ×
-            </button>
+            ×
+          </button>
 
-            <img
-              src={modalImage}
-              alt="Imagen ampliada"
-              className="max-w-3xl max-h-[80vh] shadow-2xl object-contain"
-              onClick={(e) => e.stopPropagation()}
-            />
-          </div>
-        )}
-      </section>
-    </FadeInSection>
-
+          <img
+            src={modalImage}
+            alt="Imagen ampliada"
+            className="max-w-3xl max-h-[80vh] shadow-2xl object-contain"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
+    </section>
   );
 }

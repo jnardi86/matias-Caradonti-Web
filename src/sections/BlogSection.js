@@ -4,14 +4,13 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { sanity } from "@/sanity/lib/sanity";
 import SkeletonCard from "@/components/SkeletonCard";
-import FadeInSection from "@/components/FadeInSection";
+import { Slide, Fade } from "react-awesome-reveal";
 
 export default function BlogSection() {
   const [posts, setPosts] = useState([]);
   const [visiblePosts, setVisiblePosts] = useState(6);
   const [loading, setLoading] = useState(true);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
-
 
   useEffect(() => {
     sanity
@@ -29,31 +28,32 @@ export default function BlogSection() {
       }`)
       .then((data) => {
         setPosts(data);
-        setLoading(false); // Terminó de cargar
+        setLoading(false);
       })
       .catch(console.error);
   }, []);
 
-  const loadMorePosts = async () => {
+  const loadMorePosts = () => {
     setIsLoadingMore(true);
     setTimeout(() => {
       setVisiblePosts((prev) => prev + 6);
       setIsLoadingMore(false);
-    }, 800); // Simulamos un pequeño delay para UX (aunque sea instantáneo igual)
+    }, 800);
   };
 
-
   return (
-    <FadeInSection direction="up" delay={0.3}>
+    <Slide direction="left" triggerOnce>
       <section id="blog" className="py-16 mt-40 bg-white scroll-mt-24">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl sm:text-5xl font-montserrat font-medium text-PrimaryBlue text-center mb-12">
-            Últimos Artículos
+          <h2 className="text-5xl font-poppins font-bold text-PrimaryBlue text-center mb-12 cursor-default">
+            <span className="relative inline-block group">
+              Últimos Artículos
+              <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-PrimaryBlue/80 transition-all duration-1000 group-hover:w-full"></span>
+            </span>
           </h2>
 
           <div className="grid gap-12 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
             {loading ? (
-              // Mostrar skeletons mientras carga
               Array.from({ length: 6 }).map((_, index) => (
                 <div key={index} className="flex flex-col">
                   <SkeletonCard height="h-56" />
@@ -96,12 +96,13 @@ export default function BlogSection() {
               ))
             )}
           </div>
+
           {!loading && visiblePosts < posts.length && (
             <div className="flex justify-center mt-12">
               <button
                 onClick={loadMorePosts}
                 className="bg-PrimaryBlue text-white font-semibold px-8 py-3 rounded shadow-md hover:bg-blue-700 transition-all duration-300 flex items-center gap-2"
-                disabled={isLoadingMore} // Desactivamos mientras carga
+                disabled={isLoadingMore}
               >
                 {isLoadingMore ? (
                   <div className="h-5 w-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
@@ -113,9 +114,7 @@ export default function BlogSection() {
           )}
         </div>
       </section>
-    </FadeInSection>
+    </Slide>
 
   );
 }
-
-
