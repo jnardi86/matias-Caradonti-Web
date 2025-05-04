@@ -15,7 +15,7 @@ export const metadata = {
   openGraph: {
     title: "Dr. Matías Caradonti",
     description: "Especialista en urología. Atención médica profesional en Buenos Aires.",
-    url: "https://matias-caradonti-web.vercel.app/",
+    url: "https://matias-caradonti-web.vercel.app/mc_image.png",
     siteName: "Dr. Matías Caradonti",
     images: [
       {
@@ -32,7 +32,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Dr. Matías Caradonti",
     description: "Especialista en urología. Atención médica profesional en Buenos Aires.",
-    images: ["./mc_image.png"],
+    images: ["https://matias-caradonti-web.vercel.app/mc_image.png"],
   },
 };
 

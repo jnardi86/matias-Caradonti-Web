@@ -13,26 +13,23 @@ export default function Header() {
   const pathname = usePathname();
 
   const handleNavigation = (href) => {
+    setIsOpen(false); // Siempre cerramos primero
+  
     if (href === "/") {
       router.push("/");
       return;
     }
-
+  
     if (pathname === "/") {
-
       const id = href.replace("#", "");
       const section = document.getElementById(id);
       if (section) {
         section.scrollIntoView({ behavior: "smooth" });
       }
     } else {
-
       router.push(`/${href}`);
     }
-
-    setIsOpen(false);
   };
-
 
   const navItems = [
     { label: "Inicio", href: "/" },
