@@ -8,7 +8,7 @@ import WhatsappButton from "@/components/WhatsappButton";
 // SEO y Favicon
 export const metadata = {
   title: "Dr. Matías Caradonti",
-  description: "Especialista en urología. Atención médica profesional en Buenos Aires.",
+  description: "Especialista jerarquizado en urología y salud transgenero y reconstructiva.",
   icons: {
     icon: "./favicon.png",
   },
