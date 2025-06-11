@@ -1,28 +1,28 @@
 const testimonios = [
     {
-      nombre: "Laura Pérez",
-      foto: "/gallery/testimonials/laura.png",
-      reseña: "Excelente profesional. Me sentí muy acompañada en todo momento."
+      nombre: "Sergio",
+      foto: "/gallery/testimonials/sergio.png",
+      reseña: "Después de varias cirugías fallidas, hoy puedo orinar con normalidad. Gracias al Dr. Matías Caradonti y su equipo por su compromiso."
     },
     {
-      nombre: "Martín Rodríguez",
-      foto: "/gallery/testimonials/martin.png",
-      reseña: "Muy agradecido por la atención y el trato humano recibido."
+      nombre: "Nataly",
+      foto: "/gallery/testimonials/nataly.png",
+      reseña: "Fue un camino difícil, pero hoy me siento plena. Gracias al Dr. Caradonti por acompañarme en cada paso."
     },
     {
-      nombre: "Carla Sánchez",
-      foto: "/gallery/testimonials/carla.png",
-      reseña: "Atención cálida y altamente profesional. Lo recomiendo totalmente."
+      nombre: "Stefania",
+      foto: "/gallery/testimonials/stefania.png",
+      reseña: "Cada experiencia es única. Estoy feliz de haber cumplido este paso con el Dr. Matías Caradonti y su equipo."
     },
     {
-      nombre: "José Gómez",
-      foto: "/gallery/testimonials/jose.png",
-      reseña: "Me sentí seguro y bien informado durante todo el proceso."
+      nombre: "Johana",
+      foto: "/gallery/testimonials/johana.png",
+      reseña: "Fui operada de una Genitoplastia feminizante y agradezco al Dr. Matías Caradonti por su contención en todo momento."
     },
     {
-      nombre: "Ana Fernández",
-      foto: "/gallery/testimonials/ana.png",
-      reseña: "Excelente experiencia, destacando la empatía y el profesionalismo."
+      nombre: "Nicole",
+      foto: "/gallery/testimonials/nicole.png",
+      reseña: "Cumplí cada indicación con compromiso y recibí lo mismo del Dr. Matías Caradonti y su equipo. Gracias por tanto."
     }
   ];
   

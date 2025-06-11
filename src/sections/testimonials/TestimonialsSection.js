@@ -3,7 +3,7 @@
 import { useRef, useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
-import Tilt from "react-parallax-tilt";
+import TestimonialCard from "./TestimonialsCard";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -24,35 +24,7 @@ export default function TestimonialsSection() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const TestimonialCard = ({ testimonio }) => {
-    const content = (
-      <div className="bg-White overflow-hidden w-[280px] h-[350px] mx-auto flex flex-col group transition-shadow duration-500 hover:shadow-2xl">
-        {/* Imagen */}
-        <div className="bg-White p-6 flex justify-center items-center transition-transform duration-500 group-hover:scale-105">
-          <img
-            src={testimonio.foto}
-            alt={testimonio.nombre}
-            className="w-36 h-36 object-cover rounded-full shadow-md"
-          />
-        </div>
-        {/* Texto */}
-        <div className="p-6 flex flex-col items-center text-center h-full">
-          <h3 className="text-lg font-bold font-montserrat text-PrimaryBlue mb-2">
-            {testimonio.nombre}
-          </h3>
-          <p className="text-gray-600 text-sm font-poppins leading-relaxed">
-            "{testimonio.reseña}"
-          </p>
-        </div>
-      </div>
-    );
-
-    return isMobile ? content : (
-      <Tilt glareEnable={true} glareMaxOpacity={0.1} scale={1.02} transitionSpeed={2000}>
-        {content}
-      </Tilt>
-    );
-  };
+  
 
   return (
     <Slide direction="up" triggerOnce>
@@ -91,7 +63,7 @@ export default function TestimonialsSection() {
           >
             {testimonials.map((t, i) => (
               <SwiperSlide key={i}>
-                <TestimonialCard testimonio={t} />
+                <TestimonialCard testimonio={t} isMobile={isMobile} />
               </SwiperSlide>
             ))}
           </Swiper>
