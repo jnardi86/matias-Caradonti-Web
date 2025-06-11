@@ -45,8 +45,8 @@ export default function HeroSection() {
       <div className="absolute inset-0 sm:bg-TextDark/60 bg-TextDark/90 z-10" />
 
       {/* Contenido */}
-      <div className="relative z-20 flex items-center justify-center h-full px-6 text-center ">
-        <div className="w-full text-White">
+      <div className="relative z-20 flex items-center justify-center h-full px-6 text-center">
+        <div className="w-full mt-10 sm:mt-0 text-White">
           <Zoom triggerOnce duration={1000} delay={0} fraction={0}>
             <h1 className="text-5xl font-poppins font-semibold mb-4 leading-tight sm:text-6xl lg:text-7xl">
               Dr. Matías <span className="bg-White/40 text-TextDark px-4">Caradonti</span>
@@ -54,7 +54,7 @@ export default function HeroSection() {
           </Zoom>
           <Fade direction="up" delay={500} triggerOnce>
             <p className="font-montserrat text-xl font-light mb-6 lg:text-3xl">
-              Especialista en urología y cirugía mínimamente invasiva.
+              Especialista jerarquizado en urología, salud transgenero y reconstructiva.
             </p>
           </Fade>
           <Fade direction="up" delay={800} triggerOnce>
