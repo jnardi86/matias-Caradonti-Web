@@ -19,14 +19,14 @@ export default function Footer() {
         <div className="flex flex-col gap-2 text-sm font-poppins text-AccentGray/80">
           <div className="flex items-center justify-center md:justify-start gap-2 transform transition-transform duration-1000 hover:scale-105">
             <FaEnvelope size={16} className="hover:text-White/60 cursor-pointer" />
-            <a href="mailto:contacto@matiascaradonti.com" className="text-White/80 hover:text-White hover:cursor-pointer">
-              contacto@matiascaradonti.com
+            <a href="mailto:info.caradonti@gmail.com" className="text-White/80 hover:text-White hover:cursor-pointer">
+              info.caradonti@gmail.com
             </a>
           </div>
           <div className="flex items-center justify-center md:justify-start gap-2 transform transition-transform duration-1000 hover:scale-105">
             <FaPhoneAlt size={16} className="hover:text-White/60 cursor-pointer" />
-            <a href="https://wa.me/5491144099967" className="text-White/80 hover:text-White hover:cursor-pointer">
-              +54 9 11 4409-9967
+            <a href="https://wa.me/5491139333833" className="text-White/80 hover:text-White hover:cursor-pointer">
+              +54 9 11 3933-3833
             </a>
           </div>
           <div className="flex items-center justify-center md:justify-start gap-2 transform transition-transform duration-1000 hover:scale-105">
