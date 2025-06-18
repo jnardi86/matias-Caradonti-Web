@@ -53,8 +53,8 @@ export default function ContactSection() {
         });
         setFormData({ nombre: "", email: "", telefono: "", mensaje: "" });
       })
-      .catch(() => {
-        console.error(err);  // <-- verás el 403 o el código real
+      .catch((err) => {
+        console.error("EmailJS error →", err);  // <-- verás el 403 o el código real
         Swal.fire({
           title: "Error",
           text: "Hubo un problema al enviar el mensaje. Intentá nuevamente.",
