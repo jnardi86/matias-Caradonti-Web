@@ -6,15 +6,25 @@ import { sanity } from "@/sanity/lib/sanity";
 import SkeletonCard from "@/components/SkeletonCard";
 import { Slide, Fade } from "react-awesome-reveal";
 
-export default function BlogSection() {
+export default function BlogSection({
+  category,
+  limit,
+  hideLoadMore,
+  customTitle,
+}) {
   const [posts, setPosts] = useState([]);
   const [visiblePosts, setVisiblePosts] = useState(6);
   const [loading, setLoading] = useState(true);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
 
   useEffect(() => {
+    let categoryQuery = "";
+    if (category) {
+      categoryQuery = ` && references(*[_type=="category" && title=="${category}"]._id)`;
+    }
+
     sanity
-      .fetch(`*[_type == "post" && defined(slug.current)] | order(publishedAt desc) {
+      .fetch(`*[_type == "post" && defined(slug.current) ${categoryQuery}] | order(publishedAt desc) {
         _id,
         title,
         slug,
@@ -31,7 +41,9 @@ export default function BlogSection() {
         setLoading(false);
       })
       .catch(console.error);
-  }, []);
+  }, [category]);
+
+  const visiblePostsCount = limit ?? visiblePosts;
 
   const loadMorePosts = () => {
     setIsLoadingMore(true);
@@ -47,7 +59,7 @@ export default function BlogSection() {
         <div className="container mx-auto px-4">
           <h2 className="text-5xl font-poppins font-bold text-PrimaryBlue text-center mb-12 cursor-default">
             <span className="relative inline-block group">
-              Últimos Artículos
+              {customTitle || "Últimos Artículos"}
               <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-PrimaryBlue/80 transition-all duration-1000 group-hover:w-full"></span>
             </span>
           </h2>
@@ -66,7 +78,7 @@ export default function BlogSection() {
                 </div>
               ))
             ) : (
-              posts.slice(0, visiblePosts).map((post) => (
+              posts.slice(0, visiblePostsCount).map((post) => (
                 <div
                   key={post._id}
                   className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col hover:shadow-lg transition-all duration-300 transform hover:scale-105"
@@ -97,7 +109,7 @@ export default function BlogSection() {
             )}
           </div>
 
-          {!loading && visiblePosts < posts.length && (
+          {!hideLoadMore && !loading && visiblePosts < posts.length && (
             <div className="flex justify-center mt-12">
               <button
                 onClick={loadMorePosts}
@@ -115,6 +127,5 @@ export default function BlogSection() {
         </div>
       </section>
     </Slide>
-
   );
 }
