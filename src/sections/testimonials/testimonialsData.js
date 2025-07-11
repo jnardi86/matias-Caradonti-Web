@@ -14,11 +14,12 @@ const testimonios = [
       foto: "/gallery/testimonials/Stefania.png",
       reseña: "Cada experiencia es única. Estoy feliz de haber cumplido este paso con el Dr. Matías Caradonti y su equipo."
     },
-    {
-      nombre: "Johana",
-      foto: "/gallery/testimonials/Johana.png",
-      reseña: "Fui operada de una Genitoplastia feminizante y agradezco al Dr. Matías Caradonti por su contención en todo momento."
-    },
+    // Paciente eliminada por solicitud de la paciente
+    // {
+    //   nombre: "Johana",
+    //   foto: "/gallery/testimonials/Johana.png",
+    //   reseña: "Fui operada de una Genitoplastia feminizante y agradezco al Dr. Matías Caradonti por su contención en todo momento."
+    // },
     {
       nombre: "Nicole",
       foto: "/gallery/testimonials/Nicole.png",
