@@ -53,9 +53,30 @@ export default function BlogSection({
     }, 800);
   };
 
+  /**
+ * Si terminó de cargar (loading = false)
+ * y no hay posts devueltos desde Sanity,
+ * se muestra un mensaje indicando que no hay publicaciones
+ */
+
+   if (!loading && posts.length === 0) {
+    return (
+      <section className="py-16 mt-20 bg-white scroll-mt-24 text-center">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold mb-4 text-PrimaryBlue">
+            {customTitle || "Blog"}
+          </h2>
+          <p className="text-gray-600 text-lg">
+            No hay publicaciones aún en esta categoría.
+          </p>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <Slide direction="left" triggerOnce>
-      <section id="blog" className="py-16 mt-40 bg-white scroll-mt-24">
+      <section id="blog" className="py-8 mt-20 bg-white scroll-mt-24">
         <div className="container mx-auto px-4">
           <h2 className="text-5xl font-poppins font-bold text-PrimaryBlue text-center mb-12 cursor-default">
             <span className="relative inline-block group">

@@ -12,24 +12,50 @@ export default function Header() {
   const router = useRouter();
   const pathname = usePathname();
 
-  const handleNavigation = (href) => {
-    setIsOpen(false); // Siempre cerramos primero
-  
-    if (href === "/") {
-      router.push("/");
-      return;
-    }
-  
+  /**
+ * handleNavigation
+ *
+ * Se ejecuta cuando el usuario hace clic en un ítem del menú.
+ * Decide si debe:
+ *   - Redirigir a otra página (ruta absoluta)
+ *   - Ir a la Home
+ *   - Hacer scroll suave a una sección interna de la página
+ *
+ * @param {string} href - La ruta o ancla a navegar.
+ */
+const handleNavigation = (href) => {
+  // Siempre cerrar el menú móvil si está abierto
+  setIsOpen(false);
+
+  // Si el link es Home → ir a "/"
+  if (href === "/") {
+    router.push("/");
+    return;
+  }
+
+  // Si el link es una ruta (empieza con "/"), redirigir a esa página
+  if (href.startsWith("/")) {
+    router.push(href);
+    return;
+  }
+
+  // Si es un ancla (#) → scroll a sección interna
+  if (href.startsWith("#")) {
     if (pathname === "/") {
+      // Ya estamos en Home → scroll directo
       const id = href.replace("#", "");
       const section = document.getElementById(id);
       if (section) {
         section.scrollIntoView({ behavior: "smooth" });
       }
     } else {
-      router.push(`/${href}`);
+      // Estamos en otra página → volver a home + ancla
+      router.push("/" + href);
     }
-  };
+  }
+};
+
+
 
   const navItems = [
     { label: "Inicio", href: "/" },
@@ -38,7 +64,9 @@ export default function Header() {
     { label: "Galeria", href: "#gallery" },
     { label: "Contacto", href: "#contact" },
     { label: "Testimonios", href: "#testimonials" },
-    { label: "Blog", href: "#blog" },
+    // { label: "Blog", href: "#blog" },
+    { label: "Profesionales", href: "/blog/profesional" },
+    { label: "Pacientes", href: "/blog/pacientes" },
   ];
 
   useEffect(() => {

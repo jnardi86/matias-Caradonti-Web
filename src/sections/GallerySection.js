@@ -26,7 +26,7 @@ export default function GallerySection() {
   const closeModal = () => setModalImage(null);
 
   return (
-    <section id="gallery" className="py-16 mt-40 bg-White relative scroll-mt-24">
+    <section id="gallery" className="py-8 mt-20 bg-White relative scroll-mt-24">
       <div className="container mx-auto px-4 text-center">
         
         {/* Título animado */}

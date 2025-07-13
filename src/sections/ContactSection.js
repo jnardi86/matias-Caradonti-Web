@@ -69,7 +69,7 @@ export default function ContactSection() {
     <Slide direction="right" triggerOnce>
       <section
         id="contact"
-        className="relative py-16 mt-40 bg-scroll md:bg-fixed bg-center bg-cover bg-no-repeat scroll-mt-24"
+        className="relative py-8 mt-20 bg-scroll md:bg-fixed bg-center bg-cover bg-no-repeat scroll-mt-24"
         style={{ backgroundImage: "url('/gallery/parallax_1.png')" }}
       >
         <div className="absolute inset-0 bg-black/80 z-0"></div>

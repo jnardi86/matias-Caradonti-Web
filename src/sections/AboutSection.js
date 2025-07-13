@@ -5,7 +5,7 @@ import { Slide, Fade, Zoom } from "react-awesome-reveal";
 export default function AboutSection() {
   return (
     <Slide direction="left" triggerOnce>
-      <section id="about" className="py-16 mt-40 scroll-mt-24">
+      <section id="about" className="py-8 mt-40 scroll-mt-24">
         <div className="container mx-auto flex flex-col md:flex-row items-center gap-12 px-4 md:px-4">
           {/* Imagen */}
           <div className="w-full md:w-1/2">

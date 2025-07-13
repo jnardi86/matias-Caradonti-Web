@@ -42,7 +42,7 @@ export default function ServicesSection() {
 
   return (
     <Slide direction="up" triggerOnce>
-      <section id="services" className="py-16 mt-40 scroll-mt-24">
+      <section id="services" className="py-8 mt-20 scroll-mt-24">
         <div className="container mx-auto px-4 text-center">
           <Zoom triggerOnce>
             <h2 className="text-5xl font-poppins font-bold text-PrimaryBlue mb-6 relative inline-block group cursor-default">

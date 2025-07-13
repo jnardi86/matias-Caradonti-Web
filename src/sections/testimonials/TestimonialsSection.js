@@ -28,7 +28,7 @@ export default function TestimonialsSection() {
 
   return (
     <Slide direction="up" triggerOnce>
-      <section id="testimonials" className="py-16 mt-40">
+      <section id="testimonials" className="py-8 mt-20">
         <div className="container mx-auto px-4 text-center">
 
           <h2 className="text-5xl font-poppins font-bold text-PrimaryBlue mb-12 leading-normal lg:leading-none">

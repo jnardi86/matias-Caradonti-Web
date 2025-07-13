@@ -15,6 +15,9 @@ const query = `*[_type == "post" && slug.current == $slug][0]{
       url
     },
     alt
+  },
+  categories[]->{
+    title
   }
 }`;
 
@@ -30,9 +33,18 @@ export default async function BlogPostPage({ params }) {
 
   if (!post) return notFound();
 
+  // Detectar categoría
+  const category = post.categories?.[0]?.title || null;
+
+  let backUrl = "/";
+  if (category === "Profesionales") {
+    backUrl = "/blog/profesional";
+  } else if (category === "Pacientes") {
+    backUrl = "/blog/pacientes";
+  }
+
   return (
     <div className="flex flex-col min-h-screen">
-
       {/* Hero con título y fecha */}
       <BlogPostHero title={post.title} publishedAt={post.publishedAt} />
 
@@ -45,11 +57,19 @@ export default async function BlogPostPage({ params }) {
 
       {/* Imagen destacada */}
       {post.mainImage?.asset?.url && (
-        <div className="relative w-full h-64 sm:h-80 md:h-[500px] my-6">
+        <div className="w-full max-w-6xl mx-auto my-8 rounded-lg overflow-hidden">
           <img
             src={post.mainImage.asset.url}
             alt={post.title}
-            className="w-full h-full object-cover"
+            className="
+              w-full
+              aspect-[16/9]
+              object-cover
+              rounded
+              transition-transform
+              duration-300
+              hover:scale-105
+            "
           />
         </div>
       )}
@@ -57,10 +77,10 @@ export default async function BlogPostPage({ params }) {
       {/* Botón Volver */}
       <div className="container mx-auto px-4 md:px-8 mb-12 text-center">
         <a
-          href="/"
+          href={backUrl}
           className="inline-block text-PrimaryBlue text-base md:text-lg font-semibold font-poppins hover:underline hover:opacity-80 transition"
         >
-          ← Volver al inicio
+          ← Volver al blog
         </a>
       </div>
     </div>
