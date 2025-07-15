@@ -26,9 +26,10 @@ export default function HeroSection() {
         className="block sm:hidden absolute inset-0 w-full h-full object-cover z-0"
       >
         {/* <source src="/gallery/hero/hero_video_mobile_5.mp4" type="video/mp4" /> */}
-        <source src="/gallery/hero/hero_video_mobile_5.mp4" type="video/mp4" />
+        <source src="/gallery/hero/hero_video_mobile.mp4" type="video/mp4" />
         Tu navegador no soporta video.
       </video>
+      
 
       {/* Video fondo - desktop */}
       <video
