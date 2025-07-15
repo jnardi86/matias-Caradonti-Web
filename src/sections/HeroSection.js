@@ -25,7 +25,7 @@ export default function HeroSection() {
         playsInline
         className="block sm:hidden absolute inset-0 w-full h-full object-cover z-0"
       >
-        <source src="/gallery/hero/hero_video_mobile_4.mp4" type="video/mp4" />
+        <source src="/gallery/hero/hero_video_mobile_90.mp4" type="video/mp4" />
         {/* <source src="/gallery/hero/hero_video_mobile.mp4" type="video/mp4" /> */}
         Tu navegador no soporta video.
       </video>
