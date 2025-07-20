@@ -7,19 +7,31 @@ import WhatsappButton from "@/components/WhatsappButton";
 
 // SEO y Favicon
 export const metadata = {
-  title: "Dr. Matías Caradonti",
-  description: "Especialista jerarquizado en urología y salud transgenero y reconstructiva.",
+  title: {
+    default: "Dr. Matías Caradonti | Urología",
+    template: "%s | Dr. Matías Caradonti",
+  },
+  description: "Especialista jerarquizado en urología y salud transgénero y reconstructiva.",
+  keywords: [
+  "urología", "especialista en urología", "salud transgénero", "cirugía de afirmación de género",
+  "reconstrucción genital", "atención médica en CABA", "médico trans-friendly", "salud sexual",
+  "profesional de la salud", "consultorio urológico Buenos Aires", "especialista jerarquizado"
+],
+  metadataBase: new URL("https://www.drmatiascaradonti.com.ar"),
+  alternates: {
+    canonical: "https://www.drmatiascaradonti.com.ar",
+  },
   icons: {
-    icon: "./favicon.png",
+    icon: "/favicon.png",
   },
   openGraph: {
     title: "Dr. Matías Caradonti",
     description: "Especialista en urología. Atención médica profesional en Buenos Aires.",
-    url: "https://matias-caradonti-web.vercel.app/mc_image.png",
+    url: "https://www.drmatiascaradonti.com.ar",
     siteName: "Dr. Matías Caradonti",
     images: [
       {
-        url: "./mc_image.png",
+        url: "https://www.drmatiascaradonti.com.ar/mc_image.png",
         width: 1200,
         height: 630,
         alt: "Dr. Matías Caradonti - Urología",
@@ -32,13 +44,13 @@ export const metadata = {
     card: "summary_large_image",
     title: "Dr. Matías Caradonti",
     description: "Especialista en urología. Atención médica profesional en Buenos Aires.",
-    images: ["https://matias-caradonti-web.vercel.app/mc_image.png"],
+    images: ["https://www.drmatiascaradonti.com.ar/mc_image.png"],
   },
-  // Verification for Google Search Console
   other: {
     "google-site-verification": "sdtdpjWqUY-5mqGBaSK7ixfu0BpxXUeeqRMkOq_Kuj8",
-  }
+  },
 };
+
 
 // Fonts
 const montserrat = Montserrat({ subsets: ["latin"], weight: ["100", "400", "600", "800"] });
