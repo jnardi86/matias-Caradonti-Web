@@ -13,10 +13,10 @@ export const metadata = {
   },
   description: "Especialista jerarquizado en urología y salud transgénero y reconstructiva.",
   keywords: [
-  "urología", "especialista en urología", "salud transgénero", "cirugía de afirmación de género",
-  "reconstrucción genital", "atención médica en CABA", "médico trans-friendly", "salud sexual",
-  "profesional de la salud", "consultorio urológico Buenos Aires", "especialista jerarquizado"
-],
+    "urología", "especialista en urología", "salud transgénero", "cirugía de afirmación de género",
+    "reconstrucción genital", "atención médica en CABA", "médico trans-friendly", "salud sexual",
+    "profesional de la salud", "consultorio urológico Buenos Aires", "especialista jerarquizado"
+  ],
   metadataBase: new URL("https://www.drmatiascaradonti.com.ar"),
   alternates: {
     canonical: "https://www.drmatiascaradonti.com.ar",
@@ -60,11 +60,25 @@ const poppins = Poppins({ subsets: ["latin"], weight: ["100", "400", "600", "800
 export default function RootLayout({ children }) {
   return (
     <html lang="es" className={`${montserrat.className} ${poppins.className}`}>
+      <head>
+        {/* Google Tag Manager */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-MW5B5ZVYKP"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-MW5B5ZVYKP');
+            `,
+          }}
+        />
+      </head>
       <body className="min-h-screen flex flex-col">
-        <Header/>
+        <Header />
         <main className="flex-grow">{children}</main>
-        <Footer/>
-        <WhatsappButton/>
+        <Footer />
+        <WhatsappButton />
       </body>
     </html>
   );
