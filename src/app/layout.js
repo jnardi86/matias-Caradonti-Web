@@ -34,11 +34,16 @@ export const metadata = {
     description: "Especialista en urología. Atención médica profesional en Buenos Aires.",
     images: ["https://matias-caradonti-web.vercel.app/mc_image.png"],
   },
+  // Verification for Google Search Console
+  other: {
+    "google-site-verification": "sdtdpjWqUY-5mqGBaSK7ixfu0BpxXUeeqRMkOq_Kuj8",
+  }
 };
 
 // Fonts
 const montserrat = Montserrat({ subsets: ["latin"], weight: ["100", "400", "600", "800"] });
 const poppins = Poppins({ subsets: ["latin"], weight: ["100", "400", "600", "800"] });
+
 
 export default function RootLayout({ children }) {
   return (

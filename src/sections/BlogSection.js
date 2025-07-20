@@ -43,6 +43,7 @@ export default function BlogSection({
       .catch(console.error);
   }, [category]);
 
+
   const visiblePostsCount = limit ?? visiblePosts;
 
   const loadMorePosts = () => {
@@ -53,13 +54,14 @@ export default function BlogSection({
     }, 800);
   };
 
+
   /**
  * Si terminó de cargar (loading = false)
  * y no hay posts devueltos desde Sanity,
  * se muestra un mensaje indicando que no hay publicaciones
  */
 
-   if (!loading && posts.length === 0) {
+  if (!loading && posts.length === 0) {
     return (
       <section className="py-16 mt-20 bg-white scroll-mt-24 text-center">
         <div className="container mx-auto px-4">
@@ -115,15 +117,20 @@ export default function BlogSection({
                     <h3 className="text-2xl font-bold font-montserrat text-PrimaryBlue mb-4">
                       {post.title}
                     </h3>
+                    <p className="text-TextDark text-sm mb-3 font-poppins">
+                      Publicado el {new Date(post.publishedAt).toLocaleDateString("es-AR")}
+                    </p>
                     <p className="text-gray-600 text-base mb-6 flex-grow font-poppins">
                       {post.summary}
                     </p>
-                    <Link
-                      href={`/blog/${post.slug.current}`}
-                      className="inline-block w-full bg-PrimaryBlue/10 text-PrimaryBlue font-semibold py-3 px-6 rounded hover:bg-PrimaryBlue/20 transition-all duration-300 text-center"
-                    >
-                      Leer más
-                    </Link>
+                    <div className="mt-auto">
+                      <Link
+                        href={`/blog/${post.slug.current}`}
+                        className="inline-block w-full bg-PrimaryBlue/10 text-PrimaryBlue font-semibold py-3 px-6 rounded hover:bg-PrimaryBlue/20 transition-all duration-300 text-center"
+                      >
+                        Leer más
+                      </Link>
+                    </div>
                   </div>
                 </div>
               ))
