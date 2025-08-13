@@ -3,19 +3,16 @@ import { notFound } from "next/navigation";
 import { PortableText } from "@portabletext/react";
 import { portableTextComponents } from "@/sanity/lib/portableTextComponents";
 import BlogPostHero from "@/components/BlogPostHero";
+import PostMedia from "@/components/PostMedia";
 
 const query = `*[_type == "post" && slug.current == $slug][0]{
   title,
   publishedAt,
   summary,
   body,
-  mainImage {
-    asset->{
-      _id,
-      url
-    },
-    alt
-  },
+  videoUrl,
+  "mainImageUrl": mainImage.asset->url,
+  "mainImageAlt": select(defined(mainImage.alt) => mainImage.alt, title),
   categories[]->{
     title
   }
@@ -31,6 +28,8 @@ export async function generateMetadata({ params }) {
 export default async function BlogPostPage({ params }) {
   const post = await sanity.fetch(query, { slug: params.slug });
 
+
+
   if (!post) return notFound();
 
   // Detectar categoría
@@ -43,10 +42,13 @@ export default async function BlogPostPage({ params }) {
     backUrl = "/blog/pacientes";
   }
 
+  
+
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero con título y fecha */}
       <BlogPostHero title={post.title} publishedAt={post.publishedAt} />
+
 
       {/* Contenido */}
       <main className="w-full flex-grow container px-4 py-10">
@@ -55,12 +57,19 @@ export default async function BlogPostPage({ params }) {
         </article>
       </main>
 
+      {/* Media: si hay video lo muestra; si no, imagen */}
+      <PostMedia
+        videoUrl={post.videoUrl}
+        mainImageUrl={post.mainImageUrl}
+        mainImageAlt={post.mainImageAlt}
+      />
+
       {/* Imagen destacada */}
-      {post.mainImage?.asset?.url && (
+      {/* {post.mainImageUrl && (
         <div className="w-full max-w-6xl mx-auto my-8 rounded-lg overflow-hidden">
           <img
-            src={post.mainImage.asset.url}
-            alt={post.title}
+            src={post.mainImageUrl}
+            alt={post.mainImageAlt}
             className="
               w-full
               aspect-[16/9]
@@ -72,7 +81,7 @@ export default async function BlogPostPage({ params }) {
             "
           />
         </div>
-      )}
+      )} */}
 
       {/* Botón Volver */}
       <div className="container mx-auto px-4 md:px-8 mb-12 text-center">

@@ -30,11 +30,9 @@ export default function BlogSection({
         slug,
         summary,
         publishedAt,
-        mainImage {
-          asset -> {
-            url
-          }
-        }
+        videoUrl,
+        "mainImageUrl": mainImage.asset->url,
+        "mainImageAlt": select(defined(mainImage.alt) => mainImage.alt, title)
       }`)
       .then((data) => {
         setPosts(data);
@@ -53,7 +51,6 @@ export default function BlogSection({
       setIsLoadingMore(false);
     }, 800);
   };
-
 
   /**
  * Si terminó de cargar (loading = false)
@@ -106,10 +103,10 @@ export default function BlogSection({
                   key={post._id}
                   className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col hover:shadow-lg transition-all duration-300 transform hover:scale-105"
                 >
-                  {post.mainImage && (
+                  {post.mainImageUrl && (
                     <img
-                      src={post.mainImage.asset.url}
-                      alt={post.title}
+                      src={post.mainImageUrl}
+                      alt={post.mainImageAlt}
                       className="w-full h-56 object-cover"
                     />
                   )}
