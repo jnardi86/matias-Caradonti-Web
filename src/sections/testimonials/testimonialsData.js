@@ -9,12 +9,11 @@ const testimonios = [
       foto: "/gallery/testimonials/Nataly.png",
       reseña: "Fue un camino difícil, pero hoy me siento plena. Gracias al Dr. Caradonti por acompañarme en cada paso."
     },
-    // Paciente eliminada por solicitud de la paciente
-    // {
-    //   nombre: "Stefania",
-    //   foto: "/gallery/testimonials/Stefania.png",
-    //   reseña: "Cada experiencia es única. Estoy feliz de haber cumplido este paso con el Dr. Matías Caradonti y su equipo."
-    // },
+    {
+      nombre: "Dafne",
+      foto: "/gallery/testimonials/Dafne.jpg",
+      reseña: "Me sentí acompañada, contenida y cuidada en todo momento. Hoy puedo decir que me reconozco en mi cuerpo y estoy feliz con el resultado. Gracias por la calidad humana y profesional con la que me trataron."
+    },
     {
       nombre: "Johana",
       foto: "/gallery/testimonials/Johana.png",

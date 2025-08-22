@@ -4,7 +4,7 @@ import Tilt from "react-parallax-tilt";
 
 export default function TestimonialCard({ testimonio, isMobile }) {
   const content = (
-    <div className="bg-White overflow-hidden w-[280px] h-[380px] mx-auto flex flex-col group transition-shadow duration-500 hover:shadow-2xl">
+    <div className="bg-White overflow-hidden w-[280px] h-auto mx-auto flex flex-col group transition-shadow duration-500 hover:shadow-2xl">
       {/* Imagen */}
       <div className="bg-White p-6 flex justify-center items-center transition-transform duration-500 group-hover:scale-105">
         <img
