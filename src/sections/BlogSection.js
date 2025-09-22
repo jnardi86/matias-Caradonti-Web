@@ -4,7 +4,8 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { sanity } from "@/sanity/lib/sanity";
 import SkeletonCard from "@/components/SkeletonCard";
-import { Slide, Fade } from "react-awesome-reveal";
+import { Slide } from "react-awesome-reveal";
+import { useTranslation } from "react-i18next";
 
 export default function BlogSection({
   category,
@@ -17,32 +18,88 @@ export default function BlogSection({
   const [loading, setLoading] = useState(true);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
 
-  useEffect(() => {
-    let categoryQuery = "";
-    if (category) {
-      categoryQuery = ` && references(*[_type=="category" && title=="${category}"]._id)`;
-    }
+  const { t, i18n } = useTranslation('common');
 
+  // useEffect(() => {
+  //   let categoryQuery = "";
+  //   if (category) {
+  //     categoryQuery = ` && references(*[_type=="category" && title=="${category}"]._id)`;
+  //   }
+
+  //   sanity
+  //     .fetch(`*[_type == "post" && defined(slug.current) ${categoryQuery}] | order(publishedAt desc) {
+  //       _id,
+  //       title,
+  //       slug,
+  //       summary,
+  //       publishedAt,
+  //       videoUrl,
+  //       "mainImageUrl": mainImage.asset->url,
+  //       "mainImageAlt": select(defined(mainImage.alt) => mainImage.alt, title)
+  //     }`)
+  //     .then((data) => {
+  //       setPosts(data);
+  //       setLoading(false);
+  //     })
+  //     .catch(console.error);
+  // }, [category]);
+
+  useEffect(() => {
+    const lang = i18n?.language || "es";
+
+    const query = `
+    *[
+      _type == "post" &&
+      defined(slug.current) &&
+      (!defined($cat) || references(*[_type == "category" && title == $cat]._id))
+    ] | order(publishedAt desc) {
+      _id,
+      slug,
+      publishedAt,
+      videoUrl,
+
+      "title": select(
+        defined(title[$lang]) => title[$lang],
+        defined(title.es) => title.es,
+        defined(title.en) => title.en,
+        title
+      ),
+      "summary": select(
+        defined(summary[$lang]) => summary[$lang],
+        defined(summary.es) => summary.es,
+        defined(summary.en) => summary.en,
+        summary
+      ),
+      "mainImageUrl": mainImage.asset->url,
+      "mainImageAlt": select(
+        defined(mainImage.alt[$lang]) => mainImage.alt[$lang],
+        defined(mainImage.alt.es) => mainImage.alt.es,
+        defined(mainImage.alt.en) => mainImage.alt.en,
+        mainImage.alt
+      )
+    }`;
+
+    setLoading(true);
     sanity
-      .fetch(`*[_type == "post" && defined(slug.current) ${categoryQuery}] | order(publishedAt desc) {
-        _id,
-        title,
-        slug,
-        summary,
-        publishedAt,
-        videoUrl,
-        "mainImageUrl": mainImage.asset->url,
-        "mainImageAlt": select(defined(mainImage.alt) => mainImage.alt, title)
-      }`)
+      .fetch(query, { lang, cat: category ?? null })
       .then((data) => {
         setPosts(data);
         setLoading(false);
       })
-      .catch(console.error);
-  }, [category]);
+      .catch((err) => {
+        console.error(err);
+        setLoading(false);
+      });
+  }, [category, i18n?.language]);
 
 
   const visiblePostsCount = limit ?? visiblePosts;
+
+  const titleText = t(customTitle ?? "blog.latestPosts", {
+    // Si por error te pasan un string literal en vez de key,
+    // lo mostramos igual:
+    defaultValue: customTitle ?? "Últimos Artículos",
+  });
 
   const loadMorePosts = () => {
     setIsLoadingMore(true);
@@ -79,7 +136,8 @@ export default function BlogSection({
         <div className="container mx-auto px-4">
           <h2 className="text-5xl font-poppins font-bold text-PrimaryBlue text-center mb-12 cursor-default">
             <span className="relative inline-block group">
-              {customTitle || "Últimos Artículos"}
+              {/* {customTitle || "Últimos Artículos"} */}
+              {titleText}
               <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-PrimaryBlue/80 transition-all duration-1000 group-hover:w-full"></span>
             </span>
           </h2>
@@ -115,7 +173,8 @@ export default function BlogSection({
                       {post.title}
                     </h3>
                     <p className="text-TextDark text-sm mb-3 font-poppins">
-                      Publicado el {new Date(post.publishedAt).toLocaleDateString("es-AR")}
+                      {t("blogSection.publishedOn")}{""}
+                      {new Date(post.publishedAt).toLocaleDateString("es-AR")}
                     </p>
                     <p className="text-gray-600 text-base mb-6 flex-grow font-poppins">
                       {post.summary}
@@ -125,7 +184,7 @@ export default function BlogSection({
                         href={`/blog/${post.slug.current}`}
                         className="inline-block w-full bg-PrimaryBlue/10 text-PrimaryBlue font-semibold py-3 px-6 rounded hover:bg-PrimaryBlue/20 transition-all duration-300 text-center"
                       >
-                        Leer más
+                        {t("blogSection.readMore")}
                       </Link>
                     </div>
                   </div>
@@ -144,7 +203,7 @@ export default function BlogSection({
                 {isLoadingMore ? (
                   <div className="h-5 w-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
                 ) : (
-                  "Ver más artículos"
+                  t("blogSection.loadMore")
                 )}
               </button>
             </div>

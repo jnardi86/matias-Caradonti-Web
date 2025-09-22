@@ -1,0 +1,128 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About Me",
+    "services": "Services",
+    "gallery": "Gallery",
+    "contact": "Contact",
+    "testimonials": "Testimonials",
+    "profesional": "Professionals",
+    "patients": "Patients"
+  },
+  "hero": {
+    "title1": "Dr. Matías",
+    "title2": "Caradonti",
+    "subtitle": "Senior specialist in urology, transgender health, and reconstructive surgery.",
+    "cta": "Book your appointment"
+  },
+  "about": {
+    "title": "Dr. Matías Caradonti",
+    "paragraph1": "Physician graduated from the University of Buenos Aires (UBA) School of Medicine in 2010, with a university specialization in Urology. He achieved the top residency GPA at the Central Aeronautical Hospital and was awarded the senior title in Urology by the Argentine Society of Urology and the National Academy of Medicine.",
+    "paragraph2": "He currently serves as Head of the Transgender and Reconstructive Health Service at Hospital Santojanni (Buenos Aires City), and as Head of Urology at Hospital de Navarro and OSCHOCA. He is a lecturer at UBA and UMAI, a reviewer for scientific journals, and a consultant on new technologies applied to medicine.",
+    "paragraph3": "His practice combines medical excellence, surgical innovation, and an empathetic, patient-centered approach, with the goal of improving quality of life through a modern and humane perspective."
+  },
+  "services": {
+    "title": "Urology Center Services",
+    "description": "Our center offers a comprehensive and specialized approach to urologic health, combining cutting-edge technology with a medical team in continuous training. Each patient receives personalized care in a professional and empathetic environment.",
+    "service1": {
+      "title": "Urology Consultation",
+      "description": "Evaluation and follow-up of the male and female urinary system."
+    },
+    "service2": {
+      "title": "Laparoscopic Surgery",
+      "description": "Minimally invasive procedures that support faster recovery."
+    },
+    "service3": {
+      "title": "Stone Treatment",
+      "description": "Diagnosis and management of kidney and urinary stones with modern techniques."
+    },
+    "service4": {
+      "title": "Reconstructive Surgery & Transgender Health",
+      "description": "Specialized, human-centered care in gender-affirming and reconstructive procedures."
+    },
+    "service5": {
+      "title": "Prostate Health",
+      "description": "Prevention, diagnosis, and treatment of conditions such as BPH or prostate cancer."
+    },
+    "service6": {
+      "title": "Erectile Dysfunction & Men's Sexual Health",
+      "description": "Comprehensive, personalized care for sexual disorders and urologic dysfunctions."
+    }
+  },
+  "gallery": {
+    "title1": "Over 15 years",
+    "title2": "dedicated to urologic health"
+  },
+  "contact": {
+    "title": "We are here to support you every step of the way",
+    "description": "Leave us your inquiry and we will get back to you shortly. Your health is our priority.",
+    "form": {
+      "name": "Full Name",
+      "email": "Email Address",
+      "phone": "Phone (Optional)",
+      "message": "Write your message",
+      "submit": "Send Inquiry"
+    },
+    "sweetalert": {
+      "successTitle": "Inquiry sent!",
+      "successText": "Thank you for contacting us. We will respond shortly.",
+      "successConfirmButtonText": "Close",
+      "errorTitle": "Error",
+      "errorText": "There was a problem sending your inquiry. Please try again later.",
+      "errorConfirmButtonText": "Close"
+    }
+  },
+  "testimonials": {
+    "title1": "Testimonials",
+    "title2": "from our Patients",
+    "testimonial1": {
+      "quote": "After several failed surgeries, today I can urinate normally. Thanks to Dr. Matías Caradonti and his team for their commitment.",
+      "name": "Sergio"
+    },
+    "testimonial2": {
+      "quote": "It was a difficult journey, but today I feel whole. Thank you, Dr. Caradonti, for supporting me every step of the way.",
+      "name": "Nataly"
+    },
+    "testimonial3": {
+      "quote": "I felt accompanied, supported, and cared for at all times. I’m happy with the result. Thank you for the human and professional quality with which I was treated.",
+      "name": "Dafne"
+    },
+    "testimonial4": {
+      "quote": "I underwent feminizing genitoplasty and I’m grateful to Dr. Matías Caradonti for his support at all times.",
+      "name": "Johana"
+    },
+    "testimonial5": {
+      "quote": "I followed every instruction with commitment and received the same from Dr. Matías Caradonti and his team. Thank you for so much.",
+      "name": "Nicole"
+    }
+  },
+  "blogSection": {
+    "professionalTitle": "News for Professionals",
+    "patientTitle": "News for Patients",
+    "readMore": "Read more",
+    "loadMore": "See more Posts",
+    "publishedOn": "Published on "
+  },
+  "footer": {
+    "rights": "Matías Caradonti. All rights reserved."
+  },
+  "blogProfesional": {
+    "title": "Professionals",
+    "subtitle": "Updates on urology, surgery, and new technologies.",
+    "description1": "Here you'll find the latest developments in urology, minimally invasive surgery, and new technologies applied to healthcare.",
+    "description2": "We share articles, clinical experiences, updates from conferences, courses, surgical techniques, and scientific advances that are shaping our specialty.",
+    "description3": "Our goal is to provide reliable, up-to-date, and useful information for healthcare professionals who want to keep growing and learning.",
+    "readMore": "Read more",
+    "latestPosts": "Latest Posts"
+  },
+  "blogPaciente": {
+    "title": "Patients",
+    "subtitle": "Clear and reliable information about your urologic health.",
+    "description1": "In this space, you'll find articles and news crafted especially for you, covering urologic health topics, treatments, post-surgical care, and prevention.",
+    "description2": "Our goal is to offer clear, reliable, and simple information so you can better understand your health, resolve doubts, and feel supported every step of the way.",
+    "description3": "Because we believe that being well-informed is essential for making confident decisions and taking care of your well-being.",
+    "readMore": "Read more",
+    "latestPosts": "Latest Posts"
+    
+  }
+}

@@ -1,30 +1,32 @@
-const testimonios = [
+'use client';
+
+// Devuelve el array usando i18n (no valores hardcodeados)
+export function buildTestimonials(t) {
+  return [
     {
-      nombre: "Sergio",
-      foto: "/gallery/testimonials/Sergio.png",
-      reseña: "Después de varias cirugías fallidas, hoy puedo orinar con normalidad. Gracias al Dr. Matías Caradonti y su equipo por su compromiso."
+      nombre: t('testimonials.testimonial1.name'),
+      foto: '/gallery/testimonials/Sergio.png',
+      reseña: t('testimonials.testimonial1.quote'),
     },
     {
-      nombre: "Nataly",
-      foto: "/gallery/testimonials/Nataly.png",
-      reseña: "Fue un camino difícil, pero hoy me siento plena. Gracias al Dr. Caradonti por acompañarme en cada paso."
+      nombre: t('testimonials.testimonial2.name'),
+      foto: '/gallery/testimonials/Nataly.png',
+      reseña: t('testimonials.testimonial2.quote'),
     },
     {
-      nombre: "Dafne",
-      foto: "/gallery/testimonials/Dafne.jpg",
-      reseña: "Me sentí acompañada, contenida y cuidada en todo momento. Hoy puedo decir que me reconozco en mi cuerpo y estoy feliz con el resultado. Gracias por la calidad humana y profesional con la que me trataron."
+      nombre: t('testimonials.testimonial3.name'),
+      foto: '/gallery/testimonials/Dafne.jpg',
+      reseña: t('testimonials.testimonial3.quote'),
     },
     {
-      nombre: "Johana",
-      foto: "/gallery/testimonials/Johana.png",
-      reseña: "Fui operada de una Genitoplastia feminizante y agradezco al Dr. Matías Caradonti por su contención en todo momento."
+      nombre: t('testimonials.testimonial4.name'),
+      foto: '/gallery/testimonials/Johana.png',
+      reseña: t('testimonials.testimonial4.quote'),
     },
     {
-      nombre: "Nicole",
-      foto: "/gallery/testimonials/Nicole.png",
-      reseña: "Cumplí cada indicación con compromiso y recibí lo mismo del Dr. Matías Caradonti y su equipo. Gracias por tanto."
-    }
+      nombre: t('testimonials.testimonial5.name'),
+      foto: '/gallery/testimonials/Nicole.png',
+      reseña: t('testimonials.testimonial5.quote'),
+    },
   ];
-  
-  export default testimonios;
-  
+}

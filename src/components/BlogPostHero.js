@@ -1,6 +1,11 @@
 "use client";
 
+import { useTranslation } from "react-i18next";
+
 export default function BlogPostHero({ title, publishedAt }) {
+
+  const { t, i18n } = useTranslation('common');
+
   return (
     <section className="relative w-full h-[50vh] flex items-center justify-center text-left bg-PrimaryBlue text-White px-6 md:py-40 md:h-[70vh]">
       
@@ -13,7 +18,7 @@ export default function BlogPostHero({ title, publishedAt }) {
           {title}
         </h1>
         <p className="text-sm md:text-base font-poppins opacity-80">
-          Publicado el {new Date(publishedAt).toLocaleDateString("es-AR")}
+         {t('blogSection.publishedOn')} {new Date(publishedAt).toLocaleDateString("es-AR")}
         </p>
       </div>
 

@@ -7,6 +7,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Fade, Zoom } from "react-awesome-reveal";
+import { useTranslation } from "react-i18next";
 
 export default function GallerySection() {
   const images = [
@@ -21,6 +22,7 @@ export default function GallerySection() {
   const [modalImage, setModalImage] = useState(null);
   const prevRef = useRef(null);
   const nextRef = useRef(null);
+  const { t, i18n } = useTranslation('common');
 
   const openModal = (src) => setModalImage(src);
   const closeModal = () => setModalImage(null);
@@ -32,7 +34,7 @@ export default function GallerySection() {
         {/* Título animado */}
         <Zoom triggerOnce>
           <h2 className="text-4xl md:text-5xl font-poppins font-bold text-PrimaryBlue mb-12 leading-normal">
-            <span className="bg-PrimaryBlue text-White px-4 py-2 md:py-0">Más de 15 años</span> dedicados a la salud urológica
+            <span className="bg-PrimaryBlue text-White px-4 py-2 md:py-0">{t("gallery.title1")}</span>{t("gallery.title2")}
           </h2>
         </Zoom>
 

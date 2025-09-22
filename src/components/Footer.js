@@ -1,7 +1,13 @@
+"use client";
+
 import { FaEnvelope, FaPhoneAlt, FaYoutube, FaFacebookF, FaInstagram } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
+import { useTranslation } from "react-i18next";
 
 export default function Footer() {
+
+  const { t, i18n } = useTranslation('common');
+
   return (
     <footer className="bg-PrimaryBlue text-White py-12 mt-40 pb-6">
       <div className="container mx-auto px-4 grid md:grid-cols-3 gap-8 text-center md:text-left items-center">
@@ -54,7 +60,7 @@ export default function Footer() {
 
       {/* Línea divisoria + Derechos */}
       <div className="border-t border-white/10 mt-8 pt-4 text-center text-sm text-AccentGray/60 hover:text-White transition cursor-pointer">
-        &copy; {new Date().getFullYear()} Matías Caradonti. Todos los derechos reservados.
+        &copy; {new Date().getFullYear()} {t('footer.rights')}
       </div>
     </footer>
   );

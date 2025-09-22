@@ -2,6 +2,7 @@
 
 import { Zoom, Fade } from "react-awesome-reveal";
 import { useRef } from "react";
+import { useTranslation } from "react-i18next";
 
 export default function HeroSection() {
 
@@ -11,6 +12,8 @@ export default function HeroSection() {
       contactSection.scrollIntoView({ behavior: "smooth" });
     }
   };
+
+  const { t, i18n } = useTranslation('common'); 
 
   return (
     <section
@@ -51,12 +54,12 @@ export default function HeroSection() {
         <div className="w-full mt-10 sm:mt-0 text-White">
           <Zoom triggerOnce duration={1000} delay={0} fraction={0}>
             <h1 className="text-5xl font-poppins font-semibold mb-4 leading-tight sm:text-6xl lg:text-7xl">
-              Dr. Matías <span className="bg-White/40 text-TextDark px-4">Caradonti</span>
+             {t('hero.title1')} <span className="bg-White/40 text-TextDark px-4">{t('hero.title2')}</span>
             </h1>
           </Zoom>
           <Fade direction="up" delay={500} triggerOnce>
             <p className="font-montserrat text-xl font-light mb-6 lg:text-3xl">
-              Especialista jerarquizado en urología, salud transgenero y reconstructiva.
+              {t('hero.subtitle')}
             </p>
           </Fade>
           <Fade direction="up" delay={800} triggerOnce>
@@ -64,7 +67,7 @@ export default function HeroSection() {
               onClick={handleScrollToContact}
               className="sm:hidden mt-10 px-6 py-4 bg-white/50 text-TextDark font-poppins font-semibold text-lg rounded-md shadow-md backdrop-blur transition duration-300 hover:bg-white hover:scale-105 hover:shadow-lg"
             >
-              Agendá tu consulta
+              {t('hero.cta')}
             </button>
           </Fade>
         </div>

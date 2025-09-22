@@ -1,0 +1,127 @@
+{
+    "navigation": {
+        "home": "Inicio",
+        "about": "Sobre mí",
+        "services": "Servicios",
+        "gallery": "Galería",
+        "contact": "Contacto",
+        "testimonials": "Testimonios",
+        "profesional": "Profesionales",
+        "patients": "Pacientes"
+    },
+    "hero": {
+        "title1": "Dr. Matías",
+        "title2": "Caradonti",
+        "subtitle": "Especialista jerarquizado en urología, salud transgenero y reconstructiva.",
+        "cta": "Agendá tu consulta"
+    },
+    "about": {
+        "title": "Dr. Matías Caradonti",
+        "paragraph1": "Médico egresado de la Facultad de Medicina de la UBA en 2010, con especialización universitaria en Urología. Obtuvo el mejor promedio de residencias en el Hospital Aeronáutico Central y fue distinguido con el título jerarquizado en Urología por la Sociedad Argentina de Urología y la Academia Nacional de Medicina.",
+        "paragraph2": "Actualmente se desempeña como Jefe del Servicio de Salud Transgénero y Reconstructiva del Hospital Santojanni (CABA), y como Jefe de los servicios de Urología en el Hospital de Navarro y en OSCHOCA. Es docente en la UBA y en UMAI, revisor de revistas científicas, y consultor en nuevas tecnologías aplicadas a la medicina.",
+        "paragraph3": "Su práctica combina excelencia médica, innovación quirúrgica y un enfoque empático centrado en el paciente, con el objetivo de mejorar su calidad de vida desde un abordaje moderno y humano."
+    },
+    "services": {
+        "title": "Servicios del Centro de Urología",
+        "description": "En nuestro centro ofrecemos un abordaje integral y especializado en salud urológica, combinando tecnología de vanguardia con un equipo médico en constante actualización. Cada paciente recibe una atención personalizada en un entorno profesional y empático.",
+        "service1": {
+            "title": "Consulta Urológica",
+            "description": "Evaluación y seguimiento del sistema urinario masculino y femenino.."
+        },
+        "service2": {
+            "title": "Cirugía Laparoscópica",
+            "description": "Procedimientos mínimamente invasivos que favorecen una recuperación más rápida."
+        },
+        "service3": {
+            "title": "Tratamiento de Cálculos",
+            "description": "Diagnóstico y resolución de litiasis renal y urinaria con técnicas modernas."
+        },
+        "service4": {
+            "title": "Cirugía Reconstructiva y Salud Transgénero",
+            "description": "Atención especializada y humanizada en procedimientos de reasignación y reconstrucción."
+        },
+        "service5": {
+            "title": "Salud Prostática",
+            "description": "Prevención, diagnóstico y tratamiento de afecciones como hiperplasia o cáncer de próstata."
+        },
+        "service6": {
+            "title": "Disfunción Eréctil y Salud Sexual Masculina",
+            "description": "Abordaje integral y personalizado de trastornos sexuales y disfunciones urológicas."
+        }
+    },
+    "gallery": {
+        "title1": "Más de 15 años",
+        "title2": "dedicados a la salud urológica"
+    },
+    "contact": {
+        "title": "Estamos para acompañarte en cada paso",
+        "description": "Dejanos tu consulta y te responderemos a la brevedad. Tu salud es nuestra prioridad.",
+        "form": {
+            "name": "Nombre Completo",
+            "email": "Correo Electrónico",
+            "phone": "Teléfono (Opcional)",
+            "message": "Escribí tu mensaje",
+            "submit": "Enviar Consulta"
+        },
+        "sweetalert": {
+            "successTitle": "¡Consulta enviada!",
+            "successText": "Gracias por ponerte en contacto. Te responderemos a la brevedad.",
+            "successConfirmButtonText": "Cerrar",
+            "errorTitle": "Error",
+            "errorText": "Hubo un problema al enviar tu consulta. Por favor, intentá nuevamente más tarde.",
+            "errorConfirmButtonText": "Cerrar"
+        }
+    },
+    "testimonials": {
+        "title1": "Testimonios",
+        "title2": "de nuestros Pacientes",
+        "testimonial1": {
+            "quote": "Después de varias cirugías fallidas, hoy puedo orinar con normalidad. Gracias al Dr. Matías Caradonti y su equipo por su compromiso.",
+            "name": "Sergio"
+        },
+        "testimonial2": {
+            "quote": "Fue un camino difícil, pero hoy me siento plena. Gracias al Dr. Caradonti por acompañarme en cada paso.",
+            "name": "Nataly"
+        },
+        "testimonial3": {
+            "quote": "Me sentí acompañada, contenida y cuidada en todo momento. Estoy feliz con el resultado. Gracias por la calidad humana y profesional con la que me trataron.",
+            "name": "Dafne"
+        },
+        "testimonial4": {
+            "quote": "Fui operada de una Genitoplastia feminizante y agradezco al Dr. Matías Caradonti por su contención en todo momento.",
+            "name": "Johana"
+        },
+        "testimonial5": {
+            "quote": "Cumplí cada indicación con compromiso y recibí lo mismo del Dr. Matías Caradonti y su equipo. Gracias por tanto.",
+            "name": "Nicole"
+        }
+    },
+    "blogSection": {
+        "professionalTitle": "Novedades para Profesionales",
+        "patientTitle": "Novedades para Pacientes",
+        "readMore": "Leer más",
+        "loadMore": "Ver más Publicaciones",
+        "publishedOn": "Publicado el "
+    },
+    "footer": {
+        "rights": "Matías Caradonti. Todos los derechos reservados."
+    },
+    "blogProfesional": {
+        "title": "Profesionales",
+        "subtitle": "Novedades sobre urología, cirugía y nuevas tecnologías.",
+        "description1": "En este espacio encontrarás las últimas novedades en el campo de la urología, la cirugía mínimamente invasiva y las nuevas tecnologías aplicadas a la salud.",
+        "description2": "Compartimos artículos, experiencias clínicas, actualizaciones de congresos, cursos, técnicas quirúrgicas y avances científicos que marcan tendencia en nuestra especialidad.",
+        "description3": "Nuestro objetivo es brindar información confiable, actualizada y útil para profesionales del área médica interesados en seguir creciendo y aprendiendo.",
+        "readMore": "Leer más",
+        "latestPosts": "Últimas Publicaciones"
+    },
+    "blogPaciente": {
+        "title": "Pacientes",
+        "subtitle": "Información clara y confiable sobre tu salud urológica.",
+        "description1": "En este espacio encontrarás artículos y noticias pensados especialmente para vos, sobre temas de salud urológica, tratamientos, cuidados post-quirúrgicos y prevención.",
+        "description2": "Nuestro objetivo es brindarte información clara, confiable y sencilla, para que puedas entender mejor tu salud, despejar dudas y sentirte acompañado en cada paso.",
+        "description3": "Porque creemos que estar bien informado es fundamental para tomar decisiones seguras y cuidar tu bienestar.",
+        "readMore": "Leer más",
+        "latestPosts": "Últimas Publicaciones"
+        }
+}

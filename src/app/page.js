@@ -5,8 +5,9 @@ import ContactSection from "@/sections/ContactSection";
 import BlogSection from "@/sections/BlogSection";
 import GallerySection from "@/sections/GallerySection";
 import TestimonialsSection from "@/sections/testimonials/TestimonialsSection";
-import Link from "next/link";
+// import Link from "next/link";
 import { sanity } from "@/sanity/lib/sanity";
+import ReadMoreLink from "@/components/ReadMoreLink";
 
 // Esta función verifica si hay publicaciones en la categoría especificada
 async function hasPosts(category) {
@@ -41,15 +42,20 @@ export default async function Home() {
             category="Profesionales"
             limit={3}
             hideLoadMore={true}
-            customTitle="Novedades para Profesionales"
+            customTitle="blogSection.professionalTitle"
           />
           <div className="flex justify-center mt-8">
-            <Link
+            {/* <Link
               href="/blog/profesional"
               className="bg-PrimaryBlue text-White font-semibold px-8 py-3 rounded shadow-md hover:bg-blue-700 transition-all duration-300"
             >
-              Ver más
-            </Link>
+              {t("blogProfesional.readMore")}
+            </Link> */}
+            <ReadMoreLink
+              href="/blog/profesional"
+              tkey="blogProfesional.readMore"
+              className="bg-PrimaryBlue text-White font-semibold px-8 py-3 rounded shadow-md hover:bg-blue-700 transition-all duration-300"
+            />
           </div>
         </section>
       )}
@@ -60,15 +66,20 @@ export default async function Home() {
             category="Pacientes"
             limit={3}
             hideLoadMore={true}
-            customTitle="Novedades para Pacientes"
+            customTitle="blogSection.patientTitle"
           />
           <div className="flex justify-center mt-8">
-            <Link
+            {/* <Link
               href="/blog/pacientes"
               className="bg-PrimaryBlue text-White font-semibold px-8 py-3 rounded shadow-md hover:bg-blue-700 transition-all duration-300"
             >
-              Ver más
-            </Link>
+              {t("blogPaciente.readMore")}
+            </Link> */}
+            <ReadMoreLink
+              href="/blog/pacientes"
+              tkey="blogPaciente.readMore"
+              className="bg-PrimaryBlue text-White font-semibold px-8 py-3 rounded shadow-md hover:bg-blue-700 transition-all duration-300"
+            />
           </div>
         </section>
       )}

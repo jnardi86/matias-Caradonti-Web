@@ -3,13 +3,18 @@
 import BlogSection from "@/sections/BlogSection";
 import HeroBanner from "@/components/HeroBanner";
 import { Fade } from "react-awesome-reveal";
+import { useTranslation } from "react-i18next";
 
 export default function ProfesionalBlogPage() {
+
+  const { t, i18n } = useTranslation('common');
+
+
   return (
     <>
       <HeroBanner
-        title="Profesionales"
-        subtitle="Novedades sobre urología, cirugía y nuevas tecnologías."
+        title={t('blogProfesional.title')}
+        subtitle={t('blogProfesional.subtitle')}
         backgroundImage="/gallery/hero/heroBlog_img_1.png"
         height="h-[70vh]"
       />
@@ -18,17 +23,21 @@ export default function ProfesionalBlogPage() {
       <section className="container mx-auto px-4 py-10 max-w-4xl text-center">
         <Fade triggerOnce duration={1000} direction="up">
           <p className="text-base sm:text-lg text-TextDark font-poppins leading-relaxed">
-            En este espacio encontrarás las últimas novedades en el campo de la urología, la cirugía mínimamente invasiva y las nuevas tecnologías aplicadas a la salud. <br />
-            Compartimos artículos, experiencias clínicas, actualizaciones de congresos, cursos, técnicas quirúrgicas y avances científicos que marcan tendencia en nuestra especialidad. <br />
-            Nuestro objetivo es brindar información confiable, actualizada y útil para profesionales del área médica interesados en seguir creciendo y aprendiendo.
+            {t("blogProfesional.description1")}
+          </p>
+          <p className="mt-4 text-base sm:text-lg text-TextDark font-poppins leading-relaxed">
+            {t("blogProfesional.description2")}
+          </p>
+          <p className="mt-4 text-base sm:text-lg text-TextDark font-poppins leading-relaxed">
+            {t("blogProfesional.description3")}
           </p>
         </Fade>
       </section>
 
       <main className="container mx-auto px-4 py-10">
-        <BlogSection 
-          category="Profesionales" 
-          customTitle={"Últimas novedades"}
+        <BlogSection
+          category="Profesionales"
+          customTitle={t("blogProfesional.latestPosts")}
         />
       </main>
     </>
