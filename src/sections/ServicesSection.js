@@ -11,8 +11,10 @@ import {
   HeartPulse,
 } from "lucide-react";
 import Tilt from "react-parallax-tilt";
+import { useTranslation } from "react-i18next";
 
 export default function ServicesSection() {
+  const { t, i18n } = useTranslation("common");
   const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
@@ -46,46 +48,60 @@ export default function ServicesSection() {
         <div className="container mx-auto px-4 text-center">
           <Zoom triggerOnce>
             <h2 className="text-5xl font-poppins font-bold text-PrimaryBlue mb-6 relative inline-block group cursor-default">
-              Servicios del Centro de Urología
+              {/* Servicios del Centro de Urología */}
+              {t("services.title")}
               <span className="absolute left-1/2 bottom-0 w-0 h-[2px] bg-PrimaryBlue/80 transition-all duration-1000 group-hover:w-full group-hover:left-0"></span>
             </h2>
           </Zoom>
 
           <Fade cascade damping={0.2} triggerOnce>
             <p className="max-w-2xl mx-auto mb-12 text-base sm:text-lg font-poppins text-TextDark leading-relaxed">
-              En nuestro centro ofrecemos un abordaje integral y especializado en salud urológica, combinando tecnología de vanguardia con un equipo médico en constante actualización. Cada paciente recibe una atención personalizada en un entorno profesional y empático.
+              {/* En nuestro centro ofrecemos un abordaje integral y especializado en salud urológica, combinando tecnología de vanguardia con un equipo médico en constante actualización. Cada paciente recibe una atención personalizada en un entorno profesional y empático. */}
+              {t("services.description")}
             </p>
 
             <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
               <ServiceCard
                 Icon={Stethoscope}
-                title="Consulta Urológica"
-                description="Evaluación y seguimiento del sistema urinario masculino y femenino."
+                title={t("services.service1.title")}
+                description={t("services.service1.description")}
+                // title="Consulta Urológica"
+                // description="Evaluación y seguimiento del sistema urinario masculino y femenino."
               />
               <ServiceCard
                 Icon={Microscope}
-                title="Cirugía Laparoscópica"
-                description="Procedimientos mínimamente invasivos que favorecen una recuperación más rápida."
+                title={t("services.service2.title")}
+                description={t("services.service2.description")}
+                // title="Cirugía Laparoscópica"
+                // description="Procedimientos mínimamente invasivos que favorecen una recuperación más rápida."
               />
               <ServiceCard
                 Icon={Hospital}
-                title="Tratamiento de Cálculos"
-                description="Diagnóstico y resolución de litiasis renal y urinaria con técnicas modernas."
+                title={t("services.service3.title")}
+                description={t("services.service3.description")}
+                // title="Tratamiento de Cálculos"
+                // description="Diagnóstico y resolución de litiasis renal y urinaria con técnicas modernas."
               />
               <ServiceCard
                 Icon={HeartHandshake}
-                title="Cirugía Reconstructiva y Salud Transgénero"
-                description="Atención especializada y humanizada en procedimientos de reasignación y reconstrucción."
+                title={t("services.service4.title")}
+                description={t("services.service4.description")}
+                // title="Cirugía Reconstructiva y Salud Transgénero"
+                // description="Atención especializada y humanizada en procedimientos de reasignación y reconstrucción."
               />
               <ServiceCard
                 Icon={ShieldCheck}
-                title="Salud Prostática"
-                description="Prevención, diagnóstico y tratamiento de afecciones como hiperplasia o cáncer de próstata."
+                title={t("services.service5.title")}
+                description={t("services.service5.description")}
+                // title="Salud Prostática"
+                // description="Prevención, diagnóstico y tratamiento de afecciones como hiperplasia o cáncer de próstata."
               />
               <ServiceCard
                 Icon={HeartPulse}
-                title="Disfunción Eréctil y Salud Sexual Masculina"
-                description="Abordaje integral y personalizado de trastornos sexuales y disfunciones urológicas."
+                title={t("services.service6.title")}
+                description={t("services.service6.description")}
+                // title="Disfunción Eréctil y Salud Sexual Masculina"
+                // description="Abordaje integral y personalizado de trastornos sexuales y disfunciones urológicas."
               />
             </div>
           </Fade>

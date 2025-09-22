@@ -4,6 +4,8 @@ import Footer from "@/components/Footer";
 import "./globals.css";
 import { Montserrat, Poppins } from "next/font/google";
 import WhatsappButton from "@/components/WhatsappButton";
+import { I18NProvider } from "next/dist/server/future/helpers/i18n-provider";
+import I18nProvider from "./I18nProvider";
 
 // SEO y Favicon
 export const metadata = {
@@ -75,10 +77,12 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className="min-h-screen flex flex-col">
-        <Header />
-        <main className="flex-grow">{children}</main>
-        <Footer />
-        <WhatsappButton />
+        <I18nProvider>
+          <Header />
+          <main className="flex-grow">{children}</main>
+          <Footer />
+          <WhatsappButton />
+        </I18nProvider>
       </body>
     </html>
   );

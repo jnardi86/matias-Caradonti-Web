@@ -4,46 +4,106 @@ import { PortableText } from "@portabletext/react";
 import { portableTextComponents } from "@/sanity/lib/portableTextComponents";
 import BlogPostHero from "@/components/BlogPostHero";
 import PostMedia from "@/components/PostMedia";
+import { cookies } from "next/headers";
 
+// const query = `*[_type == "post" && slug.current == $slug][0]{
+//   title,
+//   publishedAt,
+//   summary,
+//   body,
+//   videoUrl,
+//   "mainImageUrl": mainImage.asset->url,
+//   "mainImageAlt": select(defined(mainImage.alt) => mainImage.alt, title),
+//   categories[]->{
+//     title
+//   }
+// }`;
+
+// Query con selección por idioma
 const query = `*[_type == "post" && slug.current == $slug][0]{
-  title,
+  "title": select(
+    defined(title[$lang]) => title[$lang],
+    defined(title.es) => title.es,
+    defined(title.en) => title.en,
+    title
+  ),
   publishedAt,
-  summary,
-  body,
+  "summary": select(
+    defined(summary[$lang]) => summary[$lang],
+    defined(summary.es) => summary.es,
+    defined(summary.en) => summary.en,
+    summary
+  ),
+  "body": select(
+    defined(body[$lang]) => body[$lang],
+    defined(body.es) => body.es,
+    defined(body.en) => body.en,
+    body
+  ),
   videoUrl,
   "mainImageUrl": mainImage.asset->url,
-  "mainImageAlt": select(defined(mainImage.alt) => mainImage.alt, title),
-  categories[]->{
-    title
-  }
+  "mainImageAlt": select(
+    defined(mainImage.alt[$lang]) => mainImage.alt[$lang],
+    defined(mainImage.alt.es) => mainImage.alt.es,
+    defined(mainImage.alt.en) => mainImage.alt.en,
+    mainImage.alt
+  ),
+  slug,
+  categories[]->{title, slug}
 }`;
 
-export async function generateMetadata({ params }) {
-  const post = await sanity.fetch(query, { slug: params.slug });
-  return {
-    title: post?.title || "Post no encontrado",
-  };
+// Utilidad para obtener el idioma del lado servidor
+function getServerLang() {
+  const c = cookies();
+  return (
+    c.get("i18nextLng")?.value || // nombre típico del plugin
+    c.get("i18next")?.value ||    // fallback por si usas otro nombre
+    "es"
+  );
 }
 
+
+// export async function generateMetadata({ params }) {
+//   const post = await sanity.fetch(query, { slug: params.slug });
+//   return {
+//     title: post?.title || "Post no encontrado",
+//   };
+// }
+
+export async function generateMetadata({ params }) {
+  const lang = getServerLang();
+  const post = await sanity.fetch(query, { slug: params.slug, lang });
+  return { title: post?.title || "Post no encontrado" };
+}
+
+// export default async function BlogPostPage({ params }) {
+//   const post = await sanity.fetch(query, { slug: params.slug });
+
+//   if (!post) return notFound();
+
+//   // Detectar categoría
+//   const category = post.categories?.[0]?.title || null;
+
+//   let backUrl = "/";
+//   if (category === "Profesionales") {
+//     backUrl = "/blog/profesional";
+//   } else if (category === "Pacientes") {
+//     backUrl = "/blog/pacientes";
+//   }
+
 export default async function BlogPostPage({ params }) {
-  const post = await sanity.fetch(query, { slug: params.slug });
-
-
+  const lang = getServerLang();
+  const post = await sanity.fetch(query, { slug: params.slug, lang });
 
   if (!post) return notFound();
 
   // Detectar categoría
   const category = post.categories?.[0]?.title || null;
-
   let backUrl = "/";
-  if (category === "Profesionales") {
-    backUrl = "/blog/profesional";
-  } else if (category === "Pacientes") {
-    backUrl = "/blog/pacientes";
-  }
+  if (category === "Profesionales") backUrl = "/blog/profesional";
+  else if (category === "Pacientes") backUrl = "/blog/pacientes";
 
   
-
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero con título y fecha */}
@@ -89,7 +149,7 @@ export default async function BlogPostPage({ params }) {
           href={backUrl}
           className="inline-block text-PrimaryBlue text-base md:text-lg font-semibold font-poppins hover:underline hover:opacity-80 transition"
         >
-          ← Volver al blog
+         {lang === 'es' ? 'Volver al blog' : 'Return to blog'}
         </a>
       </div>
     </div>
