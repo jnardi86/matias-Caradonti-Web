@@ -4,6 +4,11 @@
 export function buildTestimonials(t) {
   return [
     {
+      nombre: t('testimonials.testimonial0.name'),
+      foto: '/gallery/testimonials/Lorena.png',
+      reseña: t('testimonials.testimonial0.quote'),
+    },
+    {
       nombre: t('testimonials.testimonial1.name'),
       foto: '/gallery/testimonials/Sergio.png',
       reseña: t('testimonials.testimonial1.quote'),

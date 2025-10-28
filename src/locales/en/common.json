@@ -75,6 +75,10 @@
   "testimonials": {
     "title1": "Testimonials",
     "title2": "from our Patients",
+    "testimonial0": {
+      "quote": "After years of uncertainty, I found in Dr. Caradonti and his team the support and professionalism I needed for my transition. I am deeply grateful for their dedication and empathy.",
+      "name": "Lorena"
+    },
     "testimonial1": {
       "quote": "After several failed surgeries, today I can urinate normally. Thanks to Dr. Matías Caradonti and his team for their commitment.",
       "name": "Sergio"
