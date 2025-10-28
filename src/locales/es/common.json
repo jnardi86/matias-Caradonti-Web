@@ -75,6 +75,10 @@
     "testimonials": {
         "title1": "Testimonios",
         "title2": "de nuestros Pacientes",
+        "testimonial0": {
+            "quote": "Después de años de incertidumbre, encontré en el Dr. Caradonti y su equipo la contención y profesionalismo que necesitaba para mi transición. Estoy profundamente agradecida por su dedicación y empatía.",
+            "name": "Lorena"
+        },
         "testimonial1": {
             "quote": "Después de varias cirugías fallidas, hoy puedo orinar con normalidad. Gracias al Dr. Matías Caradonti y su equipo por su compromiso.",
             "name": "Sergio"
